@@ -3,6 +3,7 @@ import time
 
 import pytest
 
+from toolBoxCase.ConfigTool import toolConnectOrientationAppium
 from toolBoxCase.ToolBoxOrientationUtil import changeDisplayUp, checkDisplay, checkDisplayUpL, checkDisplayUpH
 
 
@@ -20,6 +21,9 @@ def test_main():
         time.sleep(2)
         checkDisplayUpL()
         assert checkDisplayUpL() == True,'屏幕向上旋转失败'
+    toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_top_sel').click()
+    print('已恢复默认')
+
 
 if __name__ == '__main__':
     pytest.main(['--html=./report.html'])
