@@ -145,14 +145,32 @@ def checkDisplayLeftH():
         return False
 
 # 更改当前显示方向为默认的向下方向
-def changeDisplayDefault():
+
+def changeDisplayDefaultH():
     # toolConnectappium.connectdrvier.implicitly_wait(20)
     statText = toolConnectOrientationAppium.connectdrvier.find_element_by_id('android:id/switch_widget').text
     # 获取当前自动旋转开关
     # 状态，如果为开，则关闭
     if statText == '开启':
         toolConnectOrientationAppium.connectdrvier.find_element_by_id('android:id/switch_widget').click()
+    if  checkDisplay() == '0':
+        toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_down_sel').click()
+    elif checkDisplay() == '1':
+        # 向右显示为1恢复默认
+        toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_left_sel').click()
+    elif checkDisplay() == '8':
+        toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_top_sel').click()
+    else:
+        # 向左显示为9恢复默认
+        toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_right_sel').click()
+
+def changeDisplayDefaultL():
     # toolConnectappium.connectdrvier.implicitly_wait(20)
+    statText = toolConnectOrientationAppium.connectdrvier.find_element_by_id('android:id/switch_widget').text
+    # 获取当前自动旋转开关
+    # 状态，如果为开，则关闭
+    if statText == '开启':
+        toolConnectOrientationAppium.connectdrvier.find_element_by_id('android:id/switch_widget').click()
     if  checkDisplay() == '0':
         toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_right_sel').click()
     elif checkDisplay() == '1':
@@ -161,7 +179,6 @@ def changeDisplayDefault():
         toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_left_sel').click()
     else:
         toolConnectOrientationAppium.connectdrvier.find_element_by_id('com.sunmi.toolbox:id/ck_top_sel').click()
-
 
 # 检查当前方向是否为默认方向
 # 竖屏
