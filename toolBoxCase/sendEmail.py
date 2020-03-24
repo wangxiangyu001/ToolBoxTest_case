@@ -34,10 +34,10 @@ def sendEmail():
     # message.attach(MIMEText(mail_body, 'plain', 'utf-8'))
 
     # 构造附件，传送当前目录下的 html文件
-    att = MIMEText(open(r'./report.html', 'rb').read(), 'base64', 'utf-8')
-    att["Content-Type"] = 'application/octet-stream'
-    att["Content-Disposition"] = 'attachment; filename="ToolBox自动化测试报告.html"'
-    message.attach(att)
+    # att = MIMEText(open(r'./report.html', 'rb').read(), 'base64', 'utf-8')
+    # att["Content-Type"] = 'application/octet-stream'
+    # att["Content-Disposition"] = 'attachment; filename="ToolBox自动化测试报告.html"'
+    # message.attach(att)
     try:
         smtp = smtplib.SMTP()
         smtp.connect('smtp.qq.com')
